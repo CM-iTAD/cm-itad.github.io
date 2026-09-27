@@ -1,0 +1,89 @@
+Copyright © 2026 CM-iTAD Lab — Computational Methods and Intelligent
+Technology in Architecture and Design, Alfaisal University, Riyadh,
+Saudi Arabia. All rights reserved.
+
+================================================================================
+1. WHAT THIS COVERS
+================================================================================
+
+All content published in this repository and at
+https://cm-itad.github.io/CM-iTAD_website/ — including research descriptions,
+figures, plots, diagrams, photographs, 3D models and datasets, page copy, and
+the design system that presents them — is the work of the members of CM-iTAD
+Lab and its named collaborators.
+
+Individual contributors retain authorship of their own research output.
+Figures and photographs originate in the lab's own experiments, manuscripts
+and documentation; several appear in papers that are published, under review
+or in preparation, and remain subject to the terms of their venues.
+
+================================================================================
+2. RIGHTS RESERVED
+================================================================================
+
+No licence is granted by publication. Except as set out in section 3, no part
+of this material may be reproduced, redistributed, modified, incorporated into
+another work, or used commercially without prior written permission from the
+lab (abalymani@alfaisal.edu).
+
+This applies equally to the site's source code, stylesheet and content data
+file. Making a repository public on GitHub grants only the rights described in
+GitHub's Terms of Service — it does not place the work in the public domain
+and does not grant an open-source licence.
+
+================================================================================
+3. WHAT YOU MAY DO WITHOUT ASKING
+================================================================================
+
+  a. Read, link to, and share URLs of any page.
+  b. Quote short passages for review, teaching, commentary or news reporting,
+     with attribution to "CM-iTAD Lab, Alfaisal University" and a link.
+  c. Cite the research. Where a figure appears in a published paper, cite the
+     paper rather than this site. See /publications.html.
+  d. Make the temporary copies a browser needs in order to display the site.
+
+================================================================================
+4. TEXT AND DATA MINING — RIGHTS EXPRESSLY RESERVED
+================================================================================
+
+The rightsholders expressly reserve all rights to carry out text and data
+mining of this material, including for the training, fine-tuning, evaluation
+or grounding of artificial-intelligence or machine-learning systems, and
+including the compilation of this material into any corpus or dataset used for
+those purposes.
+
+This is a reservation of rights for the purposes of Article 4(3) of Directive
+(EU) 2019/790 on copyright in the Digital Single Market, and an assertion of
+the equivalent reservation available in other jurisdictions.
+
+It is declared in machine-readable form in three places:
+
+  - the `tdm-reservation` meta tag on every page of this site
+  - the `noai, noimageai` robots directive on every page
+  - /robots.txt, which names the harvesting agents this reservation applies to
+
+Ignoring those declarations does not confer a licence.
+
+Researchers who want to use this material for legitimate academic study are
+welcome to ask — the lab's own work depends on that kind of access, and
+permission is not usually withheld. Write to abalymani@alfaisal.edu.
+
+================================================================================
+5. THIRD-PARTY MATERIAL
+================================================================================
+
+This site includes software and fonts owned by others, under their own terms.
+Nothing above restricts your rights in that material. See THIRD-PARTY-NOTICES.md.
+
+================================================================================
+6. TRADE MARKS
+================================================================================
+
+"CM-iTAD", the CM-iTAD mark, "Alfaisal University" and the Alfaisal University
+identity are not licensed by this document. Partner logos shown on the About
+page remain the property of their respective owners and appear to indicate
+collaboration, not endorsement of this licence.
+
+================================================================================
+
+Questions, permissions and takedown requests: abalymani@alfaisal.edu

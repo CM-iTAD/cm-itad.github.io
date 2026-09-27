@@ -1,0 +1,62 @@
+# CM-iTAD Lab — https://cm-itad.github.io/CM-iTAD_website/
+#
+# Policy: search engines are welcome. Crawlers that harvest content to train
+# generative models are not. Research output on this site is the work of named
+# people and is reserved against text and data mining — see /LICENSE and the
+# tdm-reservation meta tag on every page.
+#
+# NOTE: robots.txt is a REQUEST, honoured voluntarily. It stops well-behaved
+# crawlers, not determined ones. It is a statement of terms, not a technical
+# control, and it is deliberately paired with an explicit rights reservation
+# so that ignoring it is unambiguous.
+
+# ----------------------------------------------------------------- AI training
+# Generative-model training and dataset harvesting. Blocked.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: YouBot
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Timpibot
+User-agent: Kangaroo Bot
+User-agent: PanguBot
+User-agent: Webzio-Extended
+User-agent: Scrapy
+Disallow: /
+
+# ------------------------------------------------------------ search & sharing
+# Explicitly allowed. Google-Extended above blocks Gemini TRAINING only and does
+# not affect Google Search; the same split applies to Applebot-Extended and Siri.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Slurp
+User-agent: Applebot
+User-agent: facebookexternalhit
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+# ------------------------------------------------------------------- everyone
+User-agent: *
+Allow: /
+
+Sitemap: https://cm-itad.github.io/CM-iTAD_website/sitemap.xml

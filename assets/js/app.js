@@ -31,6 +31,28 @@
   /* Dialable href: keep "+" and digits, drop the spaces the number is shown with. */
   function telHref(p) { return "tel:" + String(p).replace(/[^+\d]/g, ""); }
 
+  /* Figure media. An image marked `motion: true` (an animated GIF) must NOT
+     autoplay: it loops indefinitely with no way to stop it, which fails WCAG
+     2.2.2 Pause, Stop, Hide, and a CSS `prefers-reduced-motion` rule cannot
+     touch a GIF. So we render its poster frame and swap the animation in only
+     when asked — which also keeps the 1.2 MB off the initial load. The control
+     is a mono type label, not an icon (DESIGN.md §4). */
+  function media(im, alt) {
+    if (!im.motion || !im.poster) {
+      return el("img", { src: im.src, alt: alt, loading: "lazy" });
+    }
+    var img = el("img", { src: im.poster, alt: alt, loading: "lazy" });
+    var label = el("span", { text: "Play animation" });
+    var btn = el("button", { class: "motion__btn", type: "button", "aria-pressed": "false" }, [label]);
+    btn.addEventListener("click", function () {
+      var playing = btn.getAttribute("aria-pressed") === "true";
+      img.setAttribute("src", playing ? im.poster : im.src);
+      btn.setAttribute("aria-pressed", String(!playing));
+      label.textContent = playing ? "Play animation" : "Pause animation";
+    });
+    return el("div", { class: "motion" }, [img, btn]);
+  }
+
   /* Injects the vendored <model-viewer> element definition once, on demand.
      Browsers without module support simply show the poster image. */
   function loadModelViewer() {
@@ -66,13 +88,31 @@
       "aria-controls": "site-nav", "aria-label": "Menu"
     }, [el("span")]);
 
+    /* The closed sheet is hidden with `visibility: hidden` in CSS, which is what
+       actually takes its six links out of the tab order and the a11y tree —
+       opacity/pointer-events alone do not. On open we move focus into the sheet
+       (it is rendered BEFORE the toggle in the DOM, so Tab would otherwise skip
+       straight past it into <main>); Escape closes and returns focus. */
+    function setNav(open) {
+      toggle.setAttribute("aria-expanded", String(open));
+      nav.setAttribute("data-open", String(open));
+      if (open) { var first = nav.querySelector("a"); if (first) first.focus(); }
+    }
     toggle.addEventListener("click", function () {
-      var open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      nav.setAttribute("data-open", String(!open));
+      setNav(toggle.getAttribute("aria-expanded") !== "true");
     });
     nav.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") { toggle.setAttribute("aria-expanded", "false"); nav.setAttribute("data-open", "false"); }
+      if (e.target.tagName === "A") setNav(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape" && e.key !== "Esc") return;
+      if (toggle.getAttribute("aria-expanded") !== "true") return;
+      setNav(false); toggle.focus();
+    });
+    document.addEventListener("click", function (e) {
+      if (toggle.getAttribute("aria-expanded") !== "true") return;
+      if (nav.contains(e.target) || toggle.contains(e.target)) return;
+      setNav(false);
     });
 
     host.appendChild(el("div", { class: "site-header__inner" }, [
@@ -83,7 +123,8 @@
           el("span", { class: "brand__sub", text: "Alfaisal University", style: "display:block" })
         ])
       ]),
-      nav, toggle
+      /* toggle BEFORE nav so Tab reaches the button, then the links it controls */
+      toggle, nav
     ]));
   }
 
@@ -111,7 +152,10 @@
         ])
       ]),
       el("div", { class: "footer__bar" }, [
-        el("span", { text: "© " + new Date().getFullYear() + " " + s.name + " · " + s.parent }),
+        el("span", {}, [
+          el("span", { text: "© " + new Date().getFullYear() + " " + s.name + " · " + s.parent + ". All rights reserved. " }),
+          el("a", { href: "LICENSE", text: "Rights & reuse" })
+        ]),
         el("span", { text: s.tagline })
       ])
     ]));
@@ -274,7 +318,7 @@
 
     var figs = (p.images || []).map(function (im) {
       return el("figure", { class: "figure" + (im.fit === "contain" ? "" : " figure--cover"), style: "margin:0" }, [
-        el("img", { src: im.src, alt: im.alt || p.title, loading: "lazy" }),
+        media(im, im.alt || p.title),
         im.caption ? el("figcaption", { text: im.caption }) : null
       ]);
     });

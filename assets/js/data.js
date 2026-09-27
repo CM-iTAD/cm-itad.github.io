@@ -128,7 +128,7 @@ window.CMITAD = {
         { src: "assets/img/pcm-cooling-by-case.png", alt: "Annual cooling energy by façade case across present, 2050 and 2080 climates", caption: "Annual cooling energy by case and climate", fit: "contain" },
         { src: "assets/img/pcm-daylight-tradeoff.png", alt: "Cooling saving plotted against daylight retained for each shading strategy, showing the adaptive fin gaining daylight at almost no cooling cost", caption: "Cooling saving against daylight retained — the core design trade-off", fit: "contain" },
         { src: "assets/img/pcm-city-warming.png", alt: "Projected warming by city between present-day and future climate scenarios", caption: "Projected city warming under the future-weather scenarios", fit: "contain" },
-        { src: "assets/img/pcm-louvre.gif", alt: "Adaptive louvre and PCM melt fraction across a 24-hour cycle", caption: "Adaptive louvre control and PCM melt across a 24-hour cycle", fit: "contain" },
+        { src: "assets/img/pcm-louvre.gif", poster: "assets/img/pcm-louvre-poster.jpg", motion: true, alt: "Adaptive louvre and PCM melt fraction across a 24-hour cycle", caption: "Adaptive louvre control and PCM melt across a 24-hour cycle — 24 frames per cycle", fit: "contain" },
         { src: "assets/img/pcm-riyadh.png", alt: "Riyadh urban density, sky-view factor and simulated cooling loads", caption: "Urban density, sky-view factor and simulated zone cooling load — Riyadh", fit: "contain" }
       ],
       tags: ["PCM", "Adaptive façades", "EnergyPlus", "Future climate", "Urban microclimate"],
