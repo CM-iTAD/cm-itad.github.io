@@ -404,11 +404,6 @@ window.CMITAD = {
       provenance: { source: "Lab membership and title supplied by the lab 2026-09-22; cross-checked against Projects_Architecture_dept/Faculty_Paper_Contribution_Tracker_Nested.xlsx. BIO PENDING.", added: "2026-09-22", verified: false }
     },
     {
-      name: "Dr. Aliaa Elabd",
-      role: "Assistant Professor of Architectural Engineering",
-      provenance: { source: "Lab membership and title supplied by the lab 2026-09-22; cross-checked against Projects_Architecture_dept/Faculty_Paper_Contribution_Tracker_Nested.xlsx (spelled 'Aljaa' there — treated as a typo). BIO PENDING.", added: "2026-09-22", verified: false }
-    },
-    {
       name: "Arch. Libish Murugesan",
       role: "Research Assistant",
       email: "lmurugesan@alfaisal.edu",
