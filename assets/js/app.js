@@ -187,6 +187,26 @@
   function renderHome() {
     if (!slot("home-featured")) return;
 
+    /* Hero preview strip: the motion:true images from the lead project, beside
+       the hero photograph. Same poster gate as everywhere else — the home page
+       is the last place that should start two loops on arrival. */
+    if (slot("home-previews")) {
+      var lead = D.projects.filter(function (p) { return p.slug === "robotic-brick-stacking"; })[0];
+      var clips = ((lead && lead.images) || []).filter(function (im) { return im.motion; }).slice(0, 2);
+      if (clips.length) {
+        /* The play control is a <button>, so the tile cannot itself be an <a> —
+           nested interactive elements are invalid and swallow the click. The
+           caption carries the link instead. */
+        fill("home-previews", frag(clips.map(function (im) {
+          return el("div", { class: "preview" }, [
+            media(im, im.alt || lead.title),
+            el("a", { class: "preview__cap", href: "project.html?slug=" + lead.slug,
+                      text: "Preview — discrete assembly →" })
+          ]);
+        })));
+      }
+    }
+
     fill("home-stats", el("div", { class: "grid grid--3" },
       D.stats.map(function (s) {
         return el("div", { class: "stat" }, [
