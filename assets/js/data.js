@@ -15,7 +15,7 @@ window.CMITAD = {
     longName: "Computational Methods and Intelligent Technology in Architecture and Design",
     parent: "Alfaisal University · College of Engineering",
     tagline: "Computation, robotics, and the built environment.",
-    url: "https://cm-itad.github.io/CM-iTAD_website/",
+    url: "https://cm-itad.github.io/website/",
     email: "abalymani@alfaisal.edu",
     // Lab contact number (Dr. Alymani). Rendered in the footer and on the
     // Collaborate "Get in touch" band. Remove this line to drop it from both.
@@ -59,13 +59,28 @@ window.CMITAD = {
       body: [
         "Conventional robotic masonry assumes each component lands exactly where the model says it will. In practice bricks vary, grippers slip, and error accumulates course by course until the wall no longer matches the design.",
         "This project closes that loop. The nominal design is held as a TopologicPy CellComplex; 2D and 3D sensing measure the true pose of every brick as it is placed; hand-eye calibration and tolerance checks reconcile the measurement against the model; and the graph is updated so the next placement is computed against the as-built state rather than the drawing.",
-        "The result is tolerance-aware masonry — a prerequisite for putting robotic assembly on a real construction site, where nothing is ever quite where the model expects."
+        "The result is tolerance-aware masonry — a prerequisite for putting robotic assembly on a real construction site, where nothing is ever quite where the model expects.",
+        "A second strand extends the same idea from stacked courses to discrete aggregation: printed components that join by a peg-and-hole key, where the clearance designed into the joint is what absorbs the cell's positioning error. That work is in preparation for CAADRIA 2027 and is shown here only as a preview."
       ],
       images: [
-        { src: "assets/img/brick-stacking.jpg", alt: "Graph-based calibration workflow for robotic brick stacking", caption: "Closed-loop workflow: nominal CellComplex, sensing, calibration, graph-informed placement", fit: "contain" }
+        { src: "assets/img/brick-stacking.jpg", alt: "Graph-based calibration workflow for robotic brick stacking", caption: "Closed-loop workflow: nominal CellComplex, sensing, calibration, graph-informed placement", fit: "contain" },
+        { src: "assets/img/caadria-conveyor.gif",
+          poster: "assets/img/caadria-conveyor-poster.jpg", motion: true,
+          alt: "A UR10e arm beside a conveyor, with printed aggregation components moving away from the cell",
+          caption: "Preview — a stationary cell, a moving structure. Motions illustrative on the UR10e and RG6 model, no contact simulated; designed in software, not built.",
+          fit: "contain" },
+        { src: "assets/img/caadria-structure.gif",
+          poster: "assets/img/caadria-structure-poster.jpg", motion: true,
+          alt: "Speculative tower grown from branching clusters of the printed components, with human figures at its base for scale",
+          caption: "Preview — a speculative structure at building scale, components scaled ×18. Designed in software, not built.",
+          fit: "contain" }
       ],
-      tags: ["Computer vision", "TopologicPy", "Robotic assembly", "Calibration"],
-      provenance: { source: "CM-iTAD internal research figure supplied by the lab", added: "2026-09-20", verified: true }
+      tags: ["Computer vision", "TopologicPy", "Robotic assembly", "Calibration", "Discrete aggregation"],
+      provenance: {
+        source: "CM-iTAD internal research figure supplied by the lab. Preview GIFs cut from CAADRIA/Uncertainty_as_Clearance_review_cut_music.mp4 (08:05–08:24 and 08:43–08:57) — deliberately from the illustrative and speculative passages only, excluding every measured result, as the paper is under double-blind review for CAADRIA 2027.",
+        added: "2026-10-20",
+        verified: true
+      }
     },
     {
       slug: "concrete-3d-printing",

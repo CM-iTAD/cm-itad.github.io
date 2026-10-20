@@ -1,4 +1,4 @@
-# CM-iTAD Lab — https://cm-itad.github.io/CM-iTAD_website/
+# CM-iTAD Lab — https://cm-itad.github.io/website/
 #
 # Policy: search engines are welcome. Crawlers that harvest content to train
 # generative models are not. Research output on this site is the work of named
@@ -59,4 +59,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://cm-itad.github.io/CM-iTAD_website/sitemap.xml
+Sitemap: https://cm-itad.github.io/website/sitemap.xml
