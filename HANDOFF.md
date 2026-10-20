@@ -41,9 +41,11 @@ The site's content changes far more often than its code. Separating them means a
 project is a data edit that cannot break the layout, and the layout can be reworked
 without touching content. It also means a non-developer can add a publication.
 
-**The tradeoff, stated honestly:** content renders client-side, so it is not in the
-initial HTML for crawlers. For a lab site with a handful of inbound links this is
-fine. If SEO becomes important, §7 describes the migration.
+**The tradeoff, and how it is handled:** content renders client-side, so it is not
+in the initial HTML for crawlers. The pages that matter most for search — the eleven
+projects — are therefore **prerendered** to real HTML by `build_pages.py`; see §7a.
+The remaining pages are still client-rendered, which is fine for a nav-level page
+that Google reaches by crawling.
 
 ---
 
@@ -187,6 +189,16 @@ detail-page breadcrumb all pick it up automatically. Never change an existing `i
 Same pattern — append to `publications`, `people`, `teaching`, or `facilities`.
 Set `projectSlug` on a publication to cross-link it with a project.
 
+### Last step, every time: rebuild the static pages
+
+```
+python build_pages.py
+```
+
+Any change to `projects` or `categories` must be followed by this, and the
+regenerated `projects/*.html` and `sitemap.xml` committed with it. A project added
+without it has no crawlable page and no sitemap entry. See §7a.
+
 ---
 
 ## 4. Protocol — adding a page
@@ -265,15 +277,40 @@ host, and from the local filesystem.
 
 In rough order of when it becomes worth doing:
 
-1. **Per-project pages for SEO.** Write a small Node script that reads `data.js` and
-   emits one static HTML file per project at build time. Keeps the authoring model,
-   gains crawlable pages.
-2. **Move content to Markdown + front-matter** and adopt Astro or Eleventy. Natural
+1. **Move content to Markdown + front-matter** and adopt Astro or Eleventy. Natural
    step once more than one person edits content.
-3. **A CMS** (Sanity, Contentful) if non-technical staff need to publish without Git.
+2. **A CMS** (Sanity, Contentful) if non-technical staff need to publish without Git.
 
 Each step preserves the data shape in §3 — the `projects` array maps cleanly onto
 collections in any of these.
+
+---
+
+## 7a. Prerendered project pages  **(run this after editing data.js)**
+
+```
+python build_pages.py
+```
+
+Writes `projects/<slug>.html` — one real, crawlable page per project, with its own
+`<title>`, meta description, canonical, Open Graph tags and `ScholarlyArticle`
+JSON-LD — and rebuilds `sitemap.xml` to list all of them. **The generated pages are
+committed**, so deployment never runs this; only editing `data.js` does. If you add,
+rename or delete a project and forget to re-run it, the site will serve a stale or
+missing project page. Pages for deleted slugs are cleaned up automatically.
+
+Three things to know before changing any of it:
+
+- **`project.html?slug=` still works** for old links but is `noindex, follow`. Two
+  URLs serving one project would compete in the index; the prerendered page is the
+  canonical one and internal links all point at it.
+- **`ROOT` in `app.js`.** Generated pages sit one level down, so every relative path
+  `app.js` emits is prefixed with `../` there and `""` at the root. Without it the
+  header logo and the entire nav resolve to `/projects/<file>` and 404. Any new
+  relative `href`/`src` added to `app.js` must use `ROOT`.
+- **It needs Windows.** `data.js` is JavaScript, not JSON, so the script evaluates it
+  through the Windows Script Host rather than parsing it with a regex, which would
+  drift the moment someone nests an object. Porting means swapping that one function.
 
 ---
 

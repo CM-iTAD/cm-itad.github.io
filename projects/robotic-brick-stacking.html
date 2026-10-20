@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robotic brick stacking with computer vision — CM-iTAD Lab</title>
+<meta name="description" content="A closed-loop masonry workflow where 2D and 3D sensing measure each brick's true pose and the robot compensates every placement.">
+<link rel="canonical" href="https://cm-itad.github.io/projects/robotic-brick-stacking.html">
+<!-- Rights. `noai`/`noimageai` is the de-facto opt-out signal; `tdm-reservation`
+     is the W3C TDM Reservation Protocol, the machine-readable form of the
+     Article 4(3) EU DSM reservation asserted in /LICENSE. Search indexing is
+     deliberately left ON — /robots.txt names the harvesters, not the engines. -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<meta name="tdm-reservation" content="1">
+<meta name="tdm-policy" content="https://cm-itad.github.io/LICENSE">
+<meta name="copyright" content="© 2026 CM-iTAD Lab, Alfaisal University. All rights reserved.">
+<meta name="rights" content="https://cm-itad.github.io/LICENSE">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CM-iTAD Lab">
+<meta property="og:title" content="Robotic brick stacking with computer vision">
+<meta property="og:description" content="A closed-loop masonry workflow where 2D and 3D sensing measure each brick's true pose and the robot compensates every placement.">
+<meta property="og:url" content="https://cm-itad.github.io/projects/robotic-brick-stacking.html">
+<meta property="og:image" content="https://cm-itad.github.io/assets/img/brick-stacking.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="license" href="../LICENSE">
+<link rel="icon" href="../assets/img/logo-cube.png">
+<meta name="theme-color" content="#F3F6FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E2742" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="apple-touch-icon" href="../assets/img/logo-cube.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "Robotic brick stacking with computer vision", "description": "A closed-loop masonry workflow where 2D and 3D sensing measure each brick's true pose and the robot compensates every placement.", "url": "https://cm-itad.github.io/projects/robotic-brick-stacking.html", "image": "https://cm-itad.github.io/assets/img/brick-stacking.jpg", "datePublished": "2026", "keywords": "Computer vision, TopologicPy, Robotic assembly, Calibration, Discrete aggregation", "about": "Robotic Fabrication", "author": {"@type": "Organization", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}, "publisher": {"@type": "Organization", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}, "isPartOf": {"@type": "WebSite", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-render="header"></header>
+<main id="main">
+  <div class="wrap section">
+    <p class="breadcrumb"><a href="../research.html">Research</a><span> / Robotic Fabrication</span></p>
+    <div class="detail__head">
+      <div>
+        <h1 class="h-display">Robotic brick stacking with computer vision</h1>
+        <p class="lead" style="margin-top:20px;max-width:62ch">A closed-loop masonry workflow where 2D and 3D sensing measure each brick's true pose and the robot compensates every placement.</p>
+        
+      </div>
+      <div class="spec"><div class="spec__row"><span class="spec__k">Theme</span><span>Robotic Fabrication</span></div><div class="spec__row"><span class="spec__k">Year</span><span>2026</span></div><div class="spec__row"><span class="spec__k">Status</span><span>Active</span></div><div class="spec__row"><span class="spec__k">Methods</span><span>Computer vision, TopologicPy, Robotic assembly, Calibration, Discrete aggregation</span></div></div>
+    </div>
+  </div>
+  <div class="wrap section--tight"><div class="grid grid--2"><figure class="figure" style="margin:0"><img src="../assets/img/brick-stacking.jpg" alt="Graph-based calibration workflow for robotic brick stacking" loading="lazy"><figcaption>Closed-loop workflow: nominal CellComplex, sensing, calibration, graph-informed placement</figcaption></figure><figure class="figure" style="margin:0"><div class="motion"><img src="../assets/img/caadria-conveyor-poster.jpg" alt="A UR10e arm beside a conveyor, with printed aggregation components moving away from the cell" loading="lazy" data-still="../assets/img/caadria-conveyor-poster.jpg" data-motion="../assets/img/caadria-conveyor.gif"><button class="motion__btn" type="button" aria-pressed="false"><span>Play animation</span></button></div><figcaption>Preview — a stationary cell, a moving structure. Motions illustrative on the UR10e and RG6 model, no contact simulated; designed in software, not built.</figcaption></figure><figure class="figure" style="margin:0"><div class="motion"><img src="../assets/img/caadria-structure-poster.jpg" alt="Speculative tower grown from branching clusters of the printed components, with human figures at its base for scale" loading="lazy" data-still="../assets/img/caadria-structure-poster.jpg" data-motion="../assets/img/caadria-structure.gif"><button class="motion__btn" type="button" aria-pressed="false"><span>Play animation</span></button></div><figcaption>Preview — a speculative structure at building scale, components scaled ×18. Designed in software, not built.</figcaption></figure></div></div>
+  <div class="wrap section--tight"><div class="detail__body"><p>Conventional robotic masonry assumes each component lands exactly where the model says it will. In practice bricks vary, grippers slip, and error accumulates course by course until the wall no longer matches the design.</p><p>This project closes that loop. The nominal design is held as a TopologicPy CellComplex; 2D and 3D sensing measure the true pose of every brick as it is placed; hand-eye calibration and tolerance checks reconcile the measurement against the model; and the graph is updated so the next placement is computed against the as-built state rather than the drawing.</p><p>The result is tolerance-aware masonry — a prerequisite for putting robotic assembly on a real construction site, where nothing is ever quite where the model expects.</p><p>A second strand extends the same idea from stacked courses to discrete aggregation: printed components that join by a peg-and-hole key, where the clearance designed into the joint is what absorbs the cell's positioning error. That work is in preparation for CAADRIA 2027 and is shown here only as a preview.</p></div></div>
+  <div class="wrap section"><p class="eyebrow">More in Robotic Fabrication</p><div class="grid grid--3"><a class="card" href="concrete-3d-printing.html"><div class="card__media"><img src="../assets/img/printer-wide.jpg" alt="Gantry-based large-scale concrete 3D printer" loading="lazy"></div><div class="card__body"><div class="card__meta"><span class="tag">Robotic Fabrication</span><span class="tag tag--year">2025</span></div><h3 class="card__title">Large-scale concrete 3D printing</h3><p class="card__sum">A gantry additive platform with a custom concrete mix, used to prototype architectural forms and structural elements at building scale.</p><span class="card__more">View project →</span></div></a><a class="card" href="custom-robotics-vtol.html"><div class="card__media"><img src="../assets/img/grippers.jpg" alt="Custom 3D-printed robotic end-effectors" loading="lazy"></div><div class="card__body"><div class="card__meta"><span class="tag">Robotic Fabrication</span><span class="tag tag--year">2025</span></div><h3 class="card__title">Custom robotics, end-effectors &amp; VTOL platforms</h3><p class="card__sum">Purpose-built grippers, end-effectors and airframes designed, printed and assembled in-house so fabrication hardware adapts to the research.</p><span class="card__more">View project →</span></div></a></div></div>
+</main>
+<footer class="site-footer" data-render="footer"></footer>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>
+/* Content here is static, so app.js never builds these controls. Same contract
+   as media() in app.js: poster by default, animation only on request. */
+(function () {
+  var bs = document.querySelectorAll(".motion__btn");
+  for (var i = 0; i < bs.length; i++) (function (b) {
+    var img = b.parentNode.querySelector("img"), label = b.querySelector("span");
+    b.addEventListener("click", function () {
+      var playing = b.getAttribute("aria-pressed") === "true";
+      img.setAttribute("src", playing ? img.getAttribute("data-still")
+                                      : img.getAttribute("data-motion"));
+      b.setAttribute("aria-pressed", String(!playing));
+      label.textContent = playing ? "Play animation" : "Pause animation";
+    });
+  })(bs[i]);
+})();
+</script>
+</body>
+</html>

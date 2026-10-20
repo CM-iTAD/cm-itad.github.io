@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3D reconstruction &amp; architectural documentation — CM-iTAD Lab</title>
+<meta name="description" content="A controlled comparison of open-source reconstruction and texturization platforms, measuring what accessible photogrammetry actually costs in accuracy.">
+<link rel="canonical" href="https://cm-itad.github.io/projects/3d-reconstruction-documentation.html">
+<!-- Rights. `noai`/`noimageai` is the de-facto opt-out signal; `tdm-reservation`
+     is the W3C TDM Reservation Protocol, the machine-readable form of the
+     Article 4(3) EU DSM reservation asserted in /LICENSE. Search indexing is
+     deliberately left ON — /robots.txt names the harvesters, not the engines. -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<meta name="tdm-reservation" content="1">
+<meta name="tdm-policy" content="https://cm-itad.github.io/LICENSE">
+<meta name="copyright" content="© 2026 CM-iTAD Lab, Alfaisal University. All rights reserved.">
+<meta name="rights" content="https://cm-itad.github.io/LICENSE">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CM-iTAD Lab">
+<meta property="og:title" content="3D reconstruction &amp; architectural documentation">
+<meta property="og:description" content="A controlled comparison of open-source reconstruction and texturization platforms, measuring what accessible photogrammetry actually costs in accuracy.">
+<meta property="og:url" content="https://cm-itad.github.io/projects/3d-reconstruction-documentation.html">
+<meta property="og:image" content="https://cm-itad.github.io/assets/img/recon-pipeline.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="license" href="../LICENSE">
+<link rel="icon" href="../assets/img/logo-cube.png">
+<meta name="theme-color" content="#F3F6FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E2742" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="apple-touch-icon" href="../assets/img/logo-cube.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "3D reconstruction & architectural documentation", "description": "A controlled comparison of open-source reconstruction and texturization platforms, measuring what accessible photogrammetry actually costs in accuracy.", "url": "https://cm-itad.github.io/projects/3d-reconstruction-documentation.html", "image": "https://cm-itad.github.io/assets/img/recon-pipeline.jpg", "datePublished": "2025", "keywords": "Photogrammetry, Digital twin, IFC, Open source, Benchmarking", "about": "Digital Reality", "author": {"@type": "Organization", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}, "publisher": {"@type": "Organization", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}, "isPartOf": {"@type": "WebSite", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-render="header"></header>
+<main id="main">
+  <div class="wrap section">
+    <p class="breadcrumb"><a href="../research.html">Research</a><span> / Digital Reality</span></p>
+    <div class="detail__head">
+      <div>
+        <h1 class="h-display">3D reconstruction &amp; architectural documentation</h1>
+        <p class="lead" style="margin-top:20px;max-width:62ch">A controlled comparison of open-source reconstruction and texturization platforms, measuring what accessible photogrammetry actually costs in accuracy.</p>
+        
+      </div>
+      <div class="spec"><div class="spec__row"><span class="spec__k">Theme</span><span>Digital Reality</span></div><div class="spec__row"><span class="spec__k">Year</span><span>2025</span></div><div class="spec__row"><span class="spec__k">Status</span><span>Active</span></div><div class="spec__row"><span class="spec__k">Methods</span><span>Photogrammetry, Digital twin, IFC, Open source, Benchmarking</span></div></div>
+    </div>
+  </div>
+  <div class="wrap section--tight">
+    <figure class="figure model" style="margin:0"><model-viewer src="../assets/models/benchmark-model-polycam.glb" poster="../assets/img/recon-model-poster.jpg"
+      alt="Interactive 3D reconstruction of the standardised architectural model used in the benchmark — a green and white façade with three vertical bays and a pointed-arch doorway" camera-controls touch-action="pan-y"
+      interaction-prompt="none" shadow-intensity="0.6" environment-image="neutral"
+      max-camera-orbit="auto 100deg auto" loading="lazy"></model-viewer><figcaption>The benchmark subject, reconstructed with Polycam — 25,000 triangles from handheld mobile capture. Drag to rotate, scroll to zoom.</figcaption></figure>
+  </div>
+  <div class="wrap section--tight"><div class="grid grid--2"><figure class="figure" style="margin:0"><img src="../assets/img/recon-pipeline.jpg" alt="Four-panel photogrammetry pipeline: untextured reconstructed mesh, texture atlas, Meshroom node graph and recovered camera positions around the model" loading="lazy"><figcaption>Image-based photogrammetry pipeline — mesh, texture atlas, node graph and recovered camera poses</figcaption></figure><figure class="figure" style="margin:0"><img src="../assets/img/recon-accuracy-pareto.jpg" alt="Pareto analysis plotting RMS error in millimetres against triangle count for eight reconstruction platforms, separated into desktop, mobile/cloud and reference" loading="lazy"><figcaption>Accuracy against mesh complexity across eight reconstruction platforms</figcaption></figure><figure class="figure figure--cover" style="margin:0"><div class="motion"><img src="../assets/img/recon-scan-poster.jpg" alt="Handheld structured-light scanning in the lab: a 3D-printed module on a turntable under the scanner’s projected pattern, with the point cloud building live on the laptop" loading="lazy" data-still="../assets/img/recon-scan-poster.jpg" data-motion="../assets/img/recon-scan.gif"><button class="motion__btn" type="button" aria-pressed="false"><span>Play animation</span></button></div><figcaption>Handheld capture in the lab — the point cloud building live during a scan</figcaption></figure></div></div>
+  <div class="wrap section--tight"><div class="detail__body"><p>Reliable as-built information is the missing input for most retrofit, restoration and monitoring work. Commercial capture is accurate but slow and expensive; the question the lab asks is what can be achieved with free and open-source tooling and a handheld mobile device.</p><p>The study builds an image-based photogrammetry setup around a single standardised architectural model, then runs the same dataset through eight platforms — COLMAP, Meshroom, Agisoft Metashape, 3D Zephyr, Regard3D, Polycam, Kiri Engine and Xone — with Autodesk ReCap as the reference. Each result is measured for RMS error against the reference mesh, triangle count, resolution and processing time.</p><p>The outcome is a practical accuracy-versus-complexity map rather than a winner. Mobile and cloud tools reach low RMS error with far lighter meshes; several desktop pipelines produce denser geometry without a matching gain in accuracy. Limitations remain real — data management, computational cost and the training required — but open-source tools are competitive enough to change what documentation is affordable.</p><p>The pipeline continues through texturization toward IFC-based digital twins, aimed at fast, low-cost documentation of existing structures.</p></div></div>
+  <div class="wrap section--tight"><div class="callout">
+    <div class="mono-label" style="margin-bottom:8px">Related publication</div>
+    <p>Alymani, A. &amp; Murugesan, L. (2026). Architectural Documentation Using Open-Source 3D Reconstruction and Texturization Applications. Smart and Sustainable Built Environment (SASBE).</p>
+  </div></div>
+</main>
+<footer class="site-footer" data-render="footer"></footer>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+<script>
+/* Content here is static, so app.js never builds these controls. Same contract
+   as media() in app.js: poster by default, animation only on request. */
+(function () {
+  var bs = document.querySelectorAll(".motion__btn");
+  for (var i = 0; i < bs.length; i++) (function (b) {
+    var img = b.parentNode.querySelector("img"), label = b.querySelector("span");
+    b.addEventListener("click", function () {
+      var playing = b.getAttribute("aria-pressed") === "true";
+      img.setAttribute("src", playing ? img.getAttribute("data-still")
+                                      : img.getAttribute("data-motion"));
+      b.setAttribute("aria-pressed", String(!playing));
+      label.textContent = playing ? "Play animation" : "Pause animation";
+    });
+  })(bs[i]);
+})();
+</script>
+<script type="module" id="cm-model-viewer" src="../assets/js/vendor/model-viewer.min.js"></script>
+</body>
+</html>

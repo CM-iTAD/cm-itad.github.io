@@ -28,6 +28,12 @@
   function frag(nodes) { var f = document.createDocumentFragment(); nodes.forEach(function (n) { if (n) f.appendChild(n); }); return f; }
   function catOf(id) { return D.categories.filter(function (c) { return c.id === id; })[0] || { id: id, label: id }; }
   function param(k) { return new URLSearchParams(location.search).get(k); }
+  /* Prerendered project pages (build_pages.py) sit one level down in
+     /projects/, so every relative path this file emits needs a prefix there.
+     Pages at the root get "". Without this the header logo and the whole nav
+     resolve to /projects/<file> and 404. */
+  var ROOT = /\/projects\//.test(location.pathname) ? "../" : "";
+
   /* Dialable href: keep "+" and digits, drop the spaces the number is shown with. */
   function telHref(p) { return "tel:" + String(p).replace(/[^+\d]/g, ""); }
 
@@ -78,7 +84,7 @@
 
     var nav = el("nav", { class: "nav", id: "site-nav", "aria-label": "Primary" },
       D.site.nav.map(function (item) {
-        var a = el("a", { href: item.href, text: item.label });
+        var a = el("a", { href: ROOT + item.href, text: item.label });
         if (norm(item.href) === here) a.setAttribute("aria-current", "page");
         return a;
       }));
@@ -116,8 +122,8 @@
     });
 
     host.appendChild(el("div", { class: "site-header__inner" }, [
-      el("a", { class: "brand", href: "index.html", "aria-label": D.site.name + " home" }, [
-        el("span", { class: "brand__mark" }, [el("img", { src: "assets/img/logo-cube.png", alt: "", width: "34", height: "34" })]),
+      el("a", { class: "brand", href: ROOT + "index.html", "aria-label": D.site.name + " home" }, [
+        el("span", { class: "brand__mark" }, [el("img", { src: ROOT + "assets/img/logo-cube.png", alt: "", width: "34", height: "34" })]),
         el("span", {}, [
           el("span", { class: "brand__name", text: D.site.name, style: "display:block" }),
           el("span", { class: "brand__sub", text: "Alfaisal University", style: "display:block" })
@@ -140,7 +146,7 @@
         ]),
         el("div", {}, [
           el("div", { class: "footer__h", text: "Explore" }),
-          el("div", { class: "footer__links" }, s.nav.map(function (i) { return el("a", { href: i.href, text: i.label }); }))
+          el("div", { class: "footer__links" }, s.nav.map(function (i) { return el("a", { href: ROOT + i.href, text: i.label }); }))
         ]),
         el("div", {}, [
           el("div", { class: "footer__h", text: "Contact" }),
@@ -154,7 +160,7 @@
       el("div", { class: "footer__bar" }, [
         el("span", {}, [
           el("span", { text: "© " + new Date().getFullYear() + " " + s.name + " · " + s.parent + ". All rights reserved. " }),
-          el("a", { href: "LICENSE", text: "Rights & reuse" })
+          el("a", { href: ROOT + "LICENSE", text: "Rights & reuse" })
         ]),
         el("span", { text: s.tagline })
       ])
@@ -169,7 +175,7 @@
           [el("img", { src: img.src, alt: img.alt || p.title, loading: "lazy" })])
       : null;
 
-    return el("a", { class: "card", href: "project.html?slug=" + p.slug }, [
+    return el("a", { class: "card", href: ROOT + "projects/" + p.slug + ".html" }, [
       media,
       el("div", { class: "card__body" }, [
         el("div", { class: "card__meta" }, [
@@ -200,7 +206,7 @@
         fill("home-previews", frag(clips.map(function (im) {
           return el("div", { class: "preview" }, [
             media(im, im.alt || lead.title),
-            el("a", { class: "preview__cap", href: "project.html?slug=" + lead.slug,
+            el("a", { class: "preview__cap", href: ROOT + "projects/" + lead.slug + ".html",
                       text: "Preview — discrete assembly →" })
           ]);
         })));
@@ -220,7 +226,7 @@
 
     fill("home-themes", el("div", { class: "cells cells--3" },
       D.categories.map(function (c, i) {
-        return el("a", { class: "cell", href: "research.html?theme=" + c.id, style: "color:inherit" }, [
+        return el("a", { class: "cell", href: ROOT + "research.html?theme=" + c.id, style: "color:inherit" }, [
           el("span", { class: "cell__num", text: String(i + 1).padStart(2, "0") }),
           el("span", { class: "h-3", text: c.label }),
           el("span", { class: "card__sum", text: c.blurb })
@@ -274,7 +280,7 @@
       host.appendChild(el("div", { class: "wrap section" }, [
         el("h1", { class: "h-1", text: "Project not found" }),
         el("p", { class: "lead", text: "That project does not exist, or its link has changed.", style: "margin-top:14px" }),
-        el("div", { class: "btn-row" }, [el("a", { class: "btn btn--primary", href: "research.html", text: "All research" })])
+        el("div", { class: "btn-row" }, [el("a", { class: "btn btn--primary", href: ROOT + "research.html", text: "All research" })])
       ]));
       return;
     }
@@ -299,7 +305,7 @@
 
     host.appendChild(el("div", { class: "wrap section" }, [
       el("p", { class: "breadcrumb" }, [
-        el("a", { href: "research.html", text: "Research" }),
+        el("a", { href: ROOT + "research.html", text: "Research" }),
         el("span", { text: " / " + catOf(p.category).label })
       ]),
       el("div", { class: "detail__head" }, [
@@ -408,7 +414,7 @@
             !pub.doi && pub.href ? el("a", { class: "small", href: pub.href,
               target: "_blank", rel: "noopener", text: "Read the paper" }) : null,
             pub.openAccess ? el("span", { class: "tag", text: "Open access" }) : null,
-            linked ? el("a", { class: "small", href: "project.html?slug=" + pub.projectSlug, text: "Related project →" }) : null
+            linked ? el("a", { class: "small", href: ROOT + "projects/" + pub.projectSlug + ".html", text: "Related project →" }) : null
           ]) : null
         ]),
         el("span", { class: "tag", text: pub.type })

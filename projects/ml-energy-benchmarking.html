@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Benchmarking machine-learning models for building energy demand — CM-iTAD Lab</title>
+<meta name="description" content="Eight model families ranked under one protocol for predicting heating and cooling loads across single-zone and multi-zone building topologies.">
+<link rel="canonical" href="https://cm-itad.github.io/projects/ml-energy-benchmarking.html">
+<!-- Rights. `noai`/`noimageai` is the de-facto opt-out signal; `tdm-reservation`
+     is the W3C TDM Reservation Protocol, the machine-readable form of the
+     Article 4(3) EU DSM reservation asserted in /LICENSE. Search indexing is
+     deliberately left ON — /robots.txt names the harvesters, not the engines. -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<meta name="tdm-reservation" content="1">
+<meta name="tdm-policy" content="https://cm-itad.github.io/LICENSE">
+<meta name="copyright" content="© 2026 CM-iTAD Lab, Alfaisal University. All rights reserved.">
+<meta name="rights" content="https://cm-itad.github.io/LICENSE">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CM-iTAD Lab">
+<meta property="og:title" content="Benchmarking machine-learning models for building energy demand">
+<meta property="og:description" content="Eight model families ranked under one protocol for predicting heating and cooling loads across single-zone and multi-zone building topologies.">
+<meta property="og:url" content="https://cm-itad.github.io/projects/ml-energy-benchmarking.html">
+<meta property="og:image" content="https://cm-itad.github.io/assets/img/ml-accuracy-cost.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="license" href="../LICENSE">
+<link rel="icon" href="../assets/img/logo-cube.png">
+<meta name="theme-color" content="#F3F6FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E2742" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="apple-touch-icon" href="../assets/img/logo-cube.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "Benchmarking machine-learning models for building energy demand", "description": "Eight model families ranked under one protocol for predicting heating and cooling loads across single-zone and multi-zone building topologies.", "url": "https://cm-itad.github.io/projects/ml-energy-benchmarking.html", "image": "https://cm-itad.github.io/assets/img/ml-accuracy-cost.png", "datePublished": "2026", "keywords": "CatBoost, XGBoost, Surrogate models, TopologicPy, Energy demand", "about": "Design Intelligence", "author": {"@type": "Organization", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}, "publisher": {"@type": "Organization", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}, "isPartOf": {"@type": "WebSite", "name": "CM-iTAD Lab", "url": "https://cm-itad.github.io/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-render="header"></header>
+<main id="main">
+  <div class="wrap section">
+    <p class="breadcrumb"><a href="../research.html">Research</a><span> / Design Intelligence</span></p>
+    <div class="detail__head">
+      <div>
+        <h1 class="h-display">Benchmarking machine-learning models for building energy demand</h1>
+        <p class="lead" style="margin-top:20px;max-width:62ch">Eight model families ranked under one protocol for predicting heating and cooling loads across single-zone and multi-zone building topologies.</p>
+        
+      </div>
+      <div class="spec"><div class="spec__row"><span class="spec__k">Theme</span><span>Design Intelligence</span></div><div class="spec__row"><span class="spec__k">Year</span><span>2026</span></div><div class="spec__row"><span class="spec__k">Status</span><span>Active</span></div><div class="spec__row"><span class="spec__k">Methods</span><span>CatBoost, XGBoost, Surrogate models, TopologicPy, Energy demand</span></div></div>
+    </div>
+  </div>
+  <div class="wrap section--tight"><div class="grid grid--2"><figure class="figure" style="margin:0"><img src="../assets/img/ml-accuracy-cost.png" alt="Pareto frontier of mean relative RMSE against grid-search training time for eight model families, with CatBoost at the accuracy-cost knee" loading="lazy"><figcaption>Accuracy-cost trade-off across model families — CatBoost sits at the knee</figcaption></figure><figure class="figure" style="margin:0"><img src="../assets/img/ml-rmse-heatmap.png" alt="Heatmap of held-out RMSE for every model family across Cell cooling, Cell heating, CellComplex cooling and CellComplex heating tasks" loading="lazy"><figcaption>Held-out RMSE: every model on every task</figcaption></figure><figure class="figure" style="margin:0"><img src="../assets/img/ml-feature-importance.png" alt="Feature importance compared between Gradient Boosting and Random Forest, showing wall area, glazing ratio and relative compactness as dominant predictors" loading="lazy"><figcaption>Feature importance — Gradient Boosting against Random Forest</figcaption></figure></div></div>
+  <div class="wrap section--tight"><div class="detail__body"><p>Most building-energy machine-learning papers demonstrate one model family and report that it worked. That leaves a designer with no basis for choosing between them, and no idea whether the result survives a change of building representation.</p><p>This study restructures the problem as a comparative benchmark. A simulation-derived dataset of 1,536 cases, generated with the Topologic and TopologicPy parametric workflow, spans 12 building types, four orientations, four glazing ratios, five glazing distributions and two heights — expressed twice, as single-zone Cell and multi-zone CellComplex topologies. That gives four prediction tasks: Cell cooling, Cell heating, CellComplex cooling and CellComplex heating.</p><p>Eight model families — Linear, Ridge, RBF-kernel SVR, Random Forest, Gradient Boosting, XGBoost, CatBoost and an ANN/MLP — are compared under one shared train-test split, one cross-validation scheme and one metric set, with every model receiving the identical eight design predictors. Because the information is held constant, the differences reflect the learners rather than unequal inputs.</p><p>The two gradient-boosting libraries lead every task. CatBoost records the lowest held-out RMSE in three of the four tasks and the lowest mean error overall; XGBoost takes the fourth. CatBoost also sits at the accuracy-cost knee, training in ten to fifteen seconds and predicting in under twenty microseconds per case. The ANN/MLP does not improve on the tree ensembles under the present tuning budget. Feature-importance analysis identifies wall area, glazing ratio and relative compactness as the dominant design drivers.</p></div></div>
+  <div class="wrap section"><p class="eyebrow">More in Design Intelligence</p><div class="grid grid--3"><a class="card" href="graph-ml-building-ground.html"><div class="card__media card__media--contain"><img src="../assets/img/graphml.png" alt="Graph ML topological dataset classes" loading="lazy"></div><div class="card__body"><div class="card__meta"><span class="tag">Design Intelligence</span><span class="tag tag--year">2022</span></div><h3 class="card__title">Graph ML for building–ground topology</h3><p class="card__sum">Unsupervised graph-level representation learning that classifies how a building meets the ground, trained on synthetic 3D topological datasets.</p><span class="card__more">View project →</span></div></a><a class="card" href="ai-fire-egress.html"><div class="card__media"><img src="../assets/img/software-3d.jpg" alt="Web-based IFC egress analysis tool" loading="lazy"></div><div class="card__body"><div class="card__meta"><span class="tag">Design Intelligence</span><span class="tag tag--year">2025</span></div><h3 class="card__title">AI-informed fire egress from IFC models</h3><p class="card__sum">A web-based graph-ML tool that computes optimal evacuation paths directly from IFC building models, linking design geometry to life-safety performance.</p><span class="card__more">View project →</span></div></a><a class="card" href="generative-geometry-benchmarking.html"><div class="card__media"><img src="../assets/img/fractal-cube.jpg" alt="Printed fractal lattice used as the geometric-compliance benchmark" loading="lazy"></div><div class="card__body"><div class="card__meta"><span class="tag">Design Intelligence</span><span class="tag tag--year">2026</span></div><h3 class="card__title">Encoding architectural intent across generative platforms</h3><p class="card__sum">A pre-registered factorial study of how AI image-generation platforms handle architectural instruction, benchmarked against geometry that is hard to fake.</p><span class="card__more">View project →</span></div></a></div></div>
+</main>
+<footer class="site-footer" data-render="footer"></footer>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
