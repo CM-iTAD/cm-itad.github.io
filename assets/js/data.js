@@ -210,7 +210,7 @@ window.CMITAD = {
       images: [
         { src: "assets/img/recon-pipeline.jpg", alt: "Four-panel photogrammetry pipeline: untextured reconstructed mesh, texture atlas, Meshroom node graph and recovered camera positions around the model", caption: "Image-based photogrammetry pipeline — mesh, texture atlas, node graph and recovered camera poses", fit: "contain" },
         { src: "assets/img/recon-accuracy-pareto.jpg", alt: "Pareto analysis plotting RMS error in millimetres against triangle count for eight reconstruction platforms, separated into desktop, mobile/cloud and reference", caption: "Accuracy against mesh complexity across eight reconstruction platforms", fit: "contain" },
-        { src: "assets/img/recon-arm.jpg", alt: "Reality-capture and reconstruction work in the lab", caption: "Reconstruction and texturization in the lab" }
+        { src: "assets/img/recon-scan.gif", poster: "assets/img/recon-scan-poster.jpg", motion: true, alt: "Handheld structured-light scanning in the lab: a 3D-printed module on a turntable under the scanner’s projected pattern, with the point cloud building live on the laptop", caption: "Handheld capture in the lab — the point cloud building live during a scan" }
       ],
       tags: ["Photogrammetry", "Digital twin", "IFC", "Open source", "Benchmarking"],
       model: {
@@ -478,16 +478,26 @@ window.CMITAD = {
   ],
 
   /* -------------------------------------------------------------- partners
-     Logo tiles. `name` is used as alt text — keep it accurate.             */
+     Logo tiles. `name` is used as alt text — keep it accurate.
+     Source: presentations/CM-iTAD_Lab_Redesigned.pptx, slide 19
+     ("Collaborators"), embedded originals rather than screen crops. Topologic,
+     Zoom3DP and IPROconsult share one image on that slide and were split on
+     its white gutters. The lab's own and Alfaisal's marks are on the slide too
+     and are deliberately not listed here — they are not partners.
+     Plates are 600×240 (5:2) on white to match the .logos tile. Added 2026-10-20.
+     Each mark belongs to its owner and is used to identify a real collaborator;
+     see /LICENSE, which reserves the site's own content only.                */
   partners: [
-    { name: "Cardiff University",        logo: "assets/img/partners/p1.png" },
-    { name: "Alchemist",                 logo: "assets/img/partners/p2.png" },
-    { name: "Topologic / Zoom3DP / IPROconsult", logo: "assets/img/partners/p3.png" },
-    { name: "University of Nottingham",  logo: "assets/img/partners/p4.png" },
-    { name: "Tulip Technologies",        logo: "assets/img/partners/p5.png" },
-    { name: "King Saud University",      logo: "assets/img/partners/p6.png" },
-    { name: "Luyten",                    logo: "assets/img/partners/p7.png" },
-    { name: "Research partner",          logo: "assets/img/partners/p8.png" }
+    { name: "Cardiff University, Welsh School of Architecture", logo: "assets/img/partners/cardiff.png" },
+    { name: "Alchemist",                 logo: "assets/img/partners/alchemist.png" },
+    { name: "Topologic",                 logo: "assets/img/partners/topologic.png" },
+    { name: "Zoom3DP",                   logo: "assets/img/partners/zoom3dp.png" },
+    { name: "IPROconsult",               logo: "assets/img/partners/iproconsult.png" },
+    { name: "University of Nottingham",  logo: "assets/img/partners/nottingham.png" },
+    { name: "Tulip Technologies",        logo: "assets/img/partners/tulip.png" },
+    { name: "King Saud University",      logo: "assets/img/partners/king-saud.png" },
+    { name: "Luyten",                    logo: "assets/img/partners/luyten.png" },
+    { name: "Research partner",          logo: "assets/img/partners/research-partner.png" }
   ],
 
   /* ---------------------------------------------------------- collaborate */
