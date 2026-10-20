@@ -49,7 +49,10 @@
         </div>
         <div>
           <div class="hero__media">
-            <img src="assets/img/robot-arm.jpg" alt="Robotic arm in the CM-iTAD fabrication lab" width="1200" height="900">
+            <!-- Intrinsic size, not a guess: a wrong ratio makes the browser reserve the
+                 wrong box and shift the page when the image lands (CLS). This is the
+                 LCP element, so it is eager and high priority. -->
+            <img src="assets/img/robot-arm.jpg" alt="Robotic arm in the CM-iTAD fabrication lab" width="919" height="738" fetchpriority="high" decoding="async">
           </div>
           <div class="hero__strip" data-render="home-previews"></div>
         </div>
