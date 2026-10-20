@@ -13,6 +13,7 @@ Palette and stroke weights come from assets/css/site.css. Re-run after editing:
     python assets/img/build_equipment_svg.py
 """
 import os
+from xml.sax.saxutils import escape
 
 INK, INK2, HAIR = "#11243B", "#46586D", "#D6DFEA"
 BLUE, AMBER, PANEL = "#1D70B3", "#995F0B", "#E9EFF6"
@@ -29,10 +30,16 @@ HEAD = (
 FOOT = "</g></svg>"
 
 
+def esc(t):
+    """XML-escape. SVG in an <img> is parsed as strict XML: a bare `&` in a
+    label is a fatal error and the browser renders nothing at all."""
+    return escape(str(t), {'"': "&quot;"})
+
+
 def label(x, y, text, size=12, fill=INK2, anchor="start", weight=500):
     return (f'<text x="{x}" y="{y}" font-family="IBM Plex Mono, ui-monospace, monospace" '
             f'font-size="{size}" font-weight="{weight}" letter-spacing="1.1" '
-            f'fill="{fill}" text-anchor="{anchor}" stroke="none">{text}</text>')
+            f'fill="{fill}" text-anchor="{anchor}" stroke="none">{esc(text)}</text>')
 
 
 def baseline(y=430, x0=90, x1=710):
@@ -150,7 +157,7 @@ if __name__ == "__main__":
     here = os.path.dirname(os.path.abspath(__file__))
     for name, (alt, fn) in PLATES.items():
         body = "".join(fn())
-        svg = HEAD.format(w=W, h=H, alt=alt, ink=INK) + body + FOOT
+        svg = HEAD.format(w=W, h=H, alt=esc(alt), ink=INK) + body + FOOT
         p = os.path.join(here, name)
         with open(p, "w", encoding="utf-8", newline="") as f:
             f.write(svg)
