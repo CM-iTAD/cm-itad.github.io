@@ -323,6 +323,8 @@ a:hover { color: var(--fg1); }
 .list__year { font-family: var(--mono); font-size: 14px; color: var(--cm-orange-ink); font-weight: 500; }
 .list__title { font-size: 19px; font-weight: 600; letter-spacing: -.012em; line-height: 1.3; }
 .list__meta { font-size: 15px; color: var(--fg2); margin-top: 5px; }
+.list__links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin-top: 9px; }
+.list__links a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 720px) {
   .list__item { grid-template-columns: 1fr; gap: 7px; }
   .list__item > :last-child { justify-self: start; }

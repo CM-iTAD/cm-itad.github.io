@@ -132,6 +132,7 @@ window.CMITAD = {
         { src: "assets/img/pcm-riyadh.png", alt: "Riyadh urban density, sky-view factor and simulated cooling loads", caption: "Urban density, sky-view factor and simulated zone cooling load — Riyadh", fit: "contain" }
       ],
       tags: ["PCM", "Adaptive façades", "EnergyPlus", "Future climate", "Urban microclimate"],
+      publicationSlug: "sustainability-2026-pcm-glazing-louvres",
       provenance: {
         source: "PCM-facades/Experiment_Report/ (report + figures/) and Future_Weather_Report/charts/; CM-iTAD urban simulation outputs",
         added: "2026-09-20",
@@ -342,6 +343,22 @@ window.CMITAD = {
      authors · venue line. Omit it for published work.                        */
   publications: [
     {
+      slug: "sustainability-2026-pcm-glazing-louvres",
+      year: 2026,
+      title: "Towards Climate-Resilient Office Façades: Integrating PCM-Enhanced Glazing with Dynamic External Louvres Under Current and Future Hot–Arid Climates",
+      authors: "Alammar, A., Alymani, A. A., Alsofiani, M., Murugesan, L. & Latif, E.",
+      venue: "Sustainability, 18(19), 10168",
+      type: "Journal paper",
+      doi: "10.3390/su181910168",
+      openAccess: true,
+      projectSlug: "pcm-facades-urban",
+      provenance: {
+        source: "Published 2026-10-06. Title, author order, volume/issue and CC BY 4.0 licence verified against the Crossref record for DOI 10.3390/su181910168.",
+        added: "2026-10-20",
+        verified: true
+      }
+    },
+    {
       slug: "sasbe-open-source-reconstruction",
       year: 2026,
       title: "Architectural Documentation Using Open-Source 3D Reconstruction and Texturization Applications",
@@ -431,7 +448,7 @@ window.CMITAD = {
     { name: "Custom end-effectors", detail: "Grippers, fingertip extensions and combined print-and-place tools designed and printed in-house so the hardware adapts to the research rather than the other way round.", image: "assets/img/grippers.jpg" },
     { name: "Force–torque sensing", detail: "Tool-centre-point force and torque readout from the arm, supporting contact-based tasks — surface finishing, compliant placement and assembly that has to react to what it touches rather than run open-loop." },
     { name: "FDM & carbon-fibre printing", detail: "Raise3D Pro3, Bambu Lab X1E and large-format CreatBot D600 Pro2 printers, plus variable-extrusion carbon-fibre composite work for structural prototypes.", image: "assets/img/carbonfiber.jpg" },
-    { name: "Laser cutting", detail: "Sheet cutting and engraving for rapid modular prototyping — kirigami and folded-strip studies, interlocking module tests, and 2 mm carbon-fibre tensile coupons. The fast feedback loop on kerf, fit and tolerance that precedes any printed or robotic assembly." },
+    { name: "Laser cutting — TOP Laser TOPI-1610TN", detail: "A 1610-class CO2 laser cutter for sheet cutting and engraving, used for rapid modular prototyping — kirigami and folded-strip studies, interlocking module tests, and 2 mm carbon-fibre tensile coupons. The fast feedback loop on kerf, fit and tolerance that precedes any printed or robotic assembly." },
     { name: "Reality capture & reconstruction", detail: "Handheld and mobile capture feeding a benchmarked open-source stack — COLMAP, Meshroom, Agisoft Metashape, 3D Zephyr, Regard3D, Polycam and Kiri Engine — measured against an Autodesk ReCap reference for texturization and digital-twin work.", image: "assets/img/recon-arm.jpg" },
     { name: "Simulation & computation", detail: "EnergyPlus, Honeybee/Ladybug and Grasshopper for building-performance work, with Python, PyTorch Geometric and TopologicPy for the lab's graph-learning and surrogate-model research.", image: "assets/img/software-3d.jpg" }
   ],

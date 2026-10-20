@@ -379,8 +379,16 @@
         el("div", {}, [
           el("div", { class: "list__title", text: pub.title }),
           el("p", { class: "list__meta", text: pub.authors + " · " + pub.venue + (pub.status ? " · " + pub.status : "") }),
-          linked ? el("p", { style: "margin-top:8px" }, [
-            el("a", { class: "small", href: "project.html?slug=" + pub.projectSlug, text: "Related project →" })
+          /* A citation the reader cannot follow is a dead end — give every
+             published record a resolvable link. `doi` is preferred over `href`
+             because it survives a change of publisher. */
+          (pub.doi || pub.href || linked) ? el("p", { class: "list__links" }, [
+            pub.doi ? el("a", { class: "small", href: "https://doi.org/" + pub.doi,
+              target: "_blank", rel: "noopener", text: "DOI: " + pub.doi }) : null,
+            !pub.doi && pub.href ? el("a", { class: "small", href: pub.href,
+              target: "_blank", rel: "noopener", text: "Read the paper" }) : null,
+            pub.openAccess ? el("span", { class: "tag", text: "Open access" }) : null,
+            linked ? el("a", { class: "small", href: "project.html?slug=" + pub.projectSlug, text: "Related project →" }) : null
           ]) : null
         ]),
         el("span", { class: "tag", text: pub.type })
