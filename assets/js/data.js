@@ -15,7 +15,7 @@ window.CMITAD = {
     longName: "Computational Methods and Intelligent Technology in Architecture and Design",
     parent: "Alfaisal University · College of Engineering",
     tagline: "Computation, robotics, and the built environment.",
-    url: "https://cm-itad.github.io/website/",
+    url: "https://cm-itad.github.io/",
     email: "abalymani@alfaisal.edu",
     // Lab contact number (Dr. Alymani). Rendered in the footer and on the
     // Collaborate "Get in touch" band. Remove this line to drop it from both.
