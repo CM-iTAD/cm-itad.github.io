@@ -497,7 +497,7 @@ window.CMITAD = {
     { name: "Tulip Technologies",        logo: "assets/img/partners/tulip.png" },
     { name: "King Saud University",      logo: "assets/img/partners/king-saud.png" },
     { name: "Luyten",                    logo: "assets/img/partners/luyten.png" },
-    { name: "Research partner",          logo: "assets/img/partners/research-partner.png" }
+    { name: "Maptec",                    logo: "assets/img/partners/maptec.png" }
   ],
 
   /* ---------------------------------------------------------- collaborate */

@@ -78,25 +78,22 @@ provenance: {
 | Brick-stacking workflow diagram | Supplied directly by the lab | Yes |
 | PCM louvre GIF, Riyadh urban study | Supplied directly by the lab | Yes |
 | DCC '22 citation | As given in lab materials | Yes |
-| Partner logos | Sliced from the partner wall in the source deck | Logos yes, names inferred — **`p8` is unidentified** |
+| Partner logos | Embedded originals from `CM-iTAD_Lab_Redesigned.pptx` slide 19 | Yes — all ten named and confirmed by the lab |
 
 ### Known gaps
 
-1. **`partners[7]` ("Research partner")** — logo present, name not legible in the
-   source. Replace `name` once identified.
-2. **`site.url`** is a placeholder (`cm-itad.example.org`). Set the real domain.
-3. **Publications** contains three entries. More exist in the lab's folders —
+1. **Publications** contains three entries. More exist in the lab's folders —
    eCAADe (geometry-responsive toolpaths; collaborative aggregation), ASCAAD
    (robotic stacking), SIGraDi 2026, the MDPI *Sustainability* PCM submission and
    the *Energy & Buildings* PCM submission — and should be added as their status
    firms up.
-4. **`gml-aec-prisma-review`** is listed with `authors: "CM-iTAD Lab"` because the
+2. **`gml-aec-prisma-review`** is listed with `authors: "CM-iTAD Lab"` because the
    source document states no author list and no target venue. Confirm both, then
    set `verified: true`.
-5. **Teaching**: the 2026 ARE 435 entry is taken from the official Fall 2026 course
+3. **Teaching**: the 2026 ARE 435 entry is taken from the official Fall 2026 course
    outline and is verified. The remaining entries are still summarised from the
    decks — verify them against the course record before publishing.
-6. **`featured: true` is set on five projects but the home page renders only the
+4. **`featured: true` is set on five projects but the home page renders only the
    first four** (`app.js` → `renderHeaderFeatured`, `.slice(0, 4)`). The fifth,
    `graph-ml-building-ground`, never appears there. Unfeature one or raise the slice.
 
