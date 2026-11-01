@@ -139,11 +139,11 @@ window.CMITAD = {
         "At urban scale the same question is asked of a Riyadh block: how density and street-level sky-view factor drive the cooling demand that any façade strategy then has to meet."
       ],
       images: [
+        { src: "assets/img/pcm-louvre.gif", poster: "assets/img/pcm-louvre-poster.jpg", motion: true, alt: "Adaptive louvre and PCM melt fraction across a 24-hour cycle", caption: "Adaptive louvre control and PCM melt across a 24-hour cycle — 24 frames per cycle", fit: "contain" },
         { src: "assets/img/pcm-placement-map.png", alt: "Diagram of a west-facing conditioned zone showing PCM in three locations — glazing cavity, opaque spandrel and interior floor — with cooling reductions annotated for present and 2080 climates", caption: "Where the PCM sits: placement in the solar load path, not capacity, is the dominant lever", fit: "contain" },
         { src: "assets/img/pcm-cooling-by-case.png", alt: "Annual cooling energy by façade case across present, 2050 and 2080 climates", caption: "Annual cooling energy by case and climate", fit: "contain" },
         { src: "assets/img/pcm-daylight-tradeoff.png", alt: "Cooling saving plotted against daylight retained for each shading strategy, showing the adaptive fin gaining daylight at almost no cooling cost", caption: "Cooling saving against daylight retained — the core design trade-off", fit: "contain" },
         { src: "assets/img/pcm-city-warming.png", alt: "Projected warming by city between present-day and future climate scenarios", caption: "Projected city warming under the future-weather scenarios", fit: "contain" },
-        { src: "assets/img/pcm-louvre.gif", poster: "assets/img/pcm-louvre-poster.jpg", motion: true, alt: "Adaptive louvre and PCM melt fraction across a 24-hour cycle", caption: "Adaptive louvre control and PCM melt across a 24-hour cycle — 24 frames per cycle", fit: "contain" },
         { src: "assets/img/pcm-riyadh.png", alt: "Riyadh urban density, sky-view factor and simulated cooling loads", caption: "Urban density, sky-view factor and simulated zone cooling load — Riyadh", fit: "contain" }
       ],
       tags: ["PCM", "Adaptive façades", "EnergyPlus", "Future climate", "Urban microclimate"],
@@ -168,6 +168,7 @@ window.CMITAD = {
         "The resulting representations feed downstream performance work: thermal studies, fire-egress analysis, and early-stage design search."
       ],
       images: [
+        { src: "assets/img/graphml-dataset.gif", poster: "assets/img/graphml-dataset-poster.png", motion: true, alt: "Animated synthetic dataset of 3D topological building and ground models, stepping through generated samples of separation, plinth, adherence and interlock in plan, axonometric and elevation", caption: "The synthetic training set, stepping through generated samples for each class", fit: "contain" },
         { src: "assets/img/graphml.png", alt: "Graph ML topological dataset classes", caption: "Synthetic 3D topological dataset — separation, plinth, adherence, interlock", fit: "contain" }
       ],
       tags: ["Graph ML", "Unsupervised learning", "Topology", "AEC datasets"],
@@ -175,24 +176,34 @@ window.CMITAD = {
         { label: "Interactive knowledge graph — GML/GNN in AEC", href: "https://gml-aec.vercel.app/" }
       ],
       publicationSlug: "dcc-2022-building-ground",
-      provenance: { source: "Alymani, Mujica, Jabi & Corcoran (2022), DCC '22 — figure from lab deck; companion review site at gml-aec.vercel.app", added: "2026-09-20", verified: true }
+      provenance: { source: "Alymani, Mujica, Jabi & Corcoran (2022), DCC '22 — figure from lab deck; companion review site at gml-aec.vercel.app. Animated dataset (added 2026-11-01) composited from the 12 GIFs on presentations/CM-iTAD_Lab_Redesigned.pptx slide 2, same 6x2 arrangement, cropped to content.", added: "2026-09-20", verified: true }
     },
     {
       slug: "ai-fire-egress",
-      title: "AI-informed fire egress from IFC models",
+      title: "Topologic Studio: fire egress from IFC models",
       category: "design-intelligence",
       year: 2025,
       status: "Active",
-      summary: "A web-based graph-ML tool that computes optimal evacuation paths directly from IFC building models, linking design geometry to life-safety performance.",
+      summary: "A browser-based tool that reads an IFC model, turns its floors, stairs and doors into a walkable graph, finds the shortest way out, and shows how a spreading fire changes that route.",
       body: [
-        "Fire-egress analysis usually happens late, as a compliance check against a design that is already fixed. Moving it earlier means making it fast enough to run while the geometry is still changing.",
-        "The lab's tool reads an IFC model directly, derives the circulation graph, and computes evacuation paths in the browser — so a designer can see the life-safety consequence of a plan change as they make it."
+        "Fire-egress analysis usually happens late, as a compliance check against a design that is already fixed. Moving it earlier means making it fast enough to run while the geometry is still changing, and simple enough that a designer will actually open it.",
+        "Topologic Studio, built on TopologicPy, does this in the browser. It reads an IFC file, counts its floors, stairs, doors and walls, and takes the exits from the file's own data. It then lays a walkable grid over every floor, 0.5 m apart and aligned with the walls: walls block the links that cross them, doors join the rooms on either side, and each stair is walked along its flight. For the Duplex example that is 1,597 points and 4,597 links, built in a few hundredths of a second.",
+        "From there it finds the shortest route to an exit and straightens it as a person would walk it, lists alternative routes, and spreads a fire step by step under one of four models, moving the route away from the heat as the fire grows. A forecast mode maps an escape deadline for every point on the graph, and a tabular Q-learning agent can be trained to find its own way out and compared against the best possible route.",
+        "The model stays on the user's device: opening, routing, fire spread, forecasts and reinforcement learning all run in the browser, and the whole workflow fits a phone screen. Every result states its assumptions, and the Methods page lists the properties proved in Lean 4. It is a research tool: its fire models give an index of heat, not a calibrated temperature, so its results do not replace a fire engineer's egress assessment."
       ],
       images: [
-        { src: "assets/img/software-3d.jpg", alt: "Web-based IFC egress analysis tool", caption: "Web-based graph-ML egress tool reading an IFC model" }
+        { src: "assets/img/egress-fire.jpg", alt: "Topologic Studio showing the Duplex example during a fire: the hazard-aware route in magenta runs from an upstairs room, down the stair and out of the front door, with heat spreading from the foot of the stair", caption: "The Duplex example during a fire: the route moves at fire step 55 to keep clear of the heat" },
+        { src: "assets/img/egress-graph.jpg", alt: "The walkable graph of the Duplex drawn in blue through both storeys and down the stairs", caption: "Step 2, Graph: where a person can walk, 1,597 points and 4,597 links" },
+        { src: "assets/img/egress-route.jpg", alt: "A route from an upstairs room, down the stair and out of the front door, 18.8 m long", caption: "Step 3, Route: the shortest way out, straightened as a person would walk it" },
+        { src: "assets/img/egress-forecast.jpg", alt: "The escape-deadline map: the graph coloured from red (leave now) to yellow (time to spare), with the earliest safe route in teal", caption: "Escape deadlines: how long each point can wait and still get out" },
+        { src: "assets/img/egress-rl.jpg", alt: "A trained reinforcement-learning agent's route out of the Duplex, as long as the shortest route at 19.1 m, with its training success shown", caption: "A Q-learning agent's own route, checked against the best possible one" }
       ],
-      tags: ["IFC", "Graph ML", "Life safety", "Web tool"],
-      provenance: { source: "CM-iTAD lab screenshot", added: "2026-09-20", verified: true }
+      tags: ["IFC", "TopologicPy", "Fire egress", "Web tool", "Reinforcement learning"],
+      links: [
+        { label: "Try Topologic Studio in the browser", href: "https://libishm1.github.io/Topologic_Studio/" },
+        { label: "Source repository — CM-iTAD/Topologic_Studio", href: "https://github.com/CM-iTAD/Topologic_Studio" }
+      ],
+      provenance: { source: "github.com/CM-iTAD/Topologic_Studio @ f8bc65e (2026-10-29): README text and docs/images/ (duplex-fire, duplex-graph, duplex-route, duplex-forecast, duplex-rl), resized to 1200 px. Replaces the earlier lab screenshot software-3d.jpg; the old 'graph-ML tool' wording was corrected to what the README documents (graph routing, four fire models, tabular Q-learning).", added: "2026-09-20", verified: true }
     },
     {
       slug: "3d-reconstruction-documentation",
@@ -274,8 +285,7 @@ window.CMITAD = {
         "A ten-prompt calibration suite with binary pass/fail criteria profiles each model across material literacy, spatial and structural logic, geometric compliance, and scale. The Menger sponge pilot supplies the hostile case: recursive, self-intersecting geometry that a model cannot approximate from style alone. Printing selected results closes the loop — a form a generative tool produces happily but no printer can build is exactly the failure the benchmark exists to catch."
       ],
       images: [
-        { src: "assets/img/fractal-cube.jpg", alt: "Printed fractal lattice used as the geometric-compliance benchmark", caption: "Fractal lattice benchmark, printed" },
-        { src: "assets/img/generative.jpg", alt: "Generative geometry study output", caption: "Generative geometry study" }
+        { src: "assets/img/fractal-cube.jpg", alt: "Printed fractal lattice used as the geometric-compliance benchmark", caption: "Fractal lattice benchmark, printed" }
       ],
       tags: ["Generative AI", "Factorial study", "Prompt engineering", "Benchmarking"],
       provenance: {
@@ -468,7 +478,7 @@ window.CMITAD = {
     { name: "Carbon-fibre & variable extrusion", detail: "Carbon-fibre reinforced filament printed with extrusion varied along the toolpath, so material follows the stress field instead of being laid down uniformly.", image: "assets/img/carbonfiber.jpg" },
     { name: "Laser cutting", detail: "A TOP Laser TOPI-1610TN CO2 laser cutter for sheet cutting and engraving, used for rapid modular prototyping — kirigami and folded-strip studies, interlocking module tests, and 2 mm carbon-fibre tensile coupons. The fast feedback loop on kerf, fit and tolerance that precedes any printed or robotic assembly.", image: "assets/img/equip-toplaser-1610.svg" },
     { name: "Reality capture & reconstruction", detail: "Handheld and mobile capture feeding a benchmarked open-source stack — COLMAP, Meshroom, Agisoft Metashape, 3D Zephyr, Regard3D, Polycam and Kiri Engine — measured against an Autodesk ReCap reference for texturization and digital-twin work." },
-    { name: "Simulation & computation", detail: "EnergyPlus, Honeybee/Ladybug and Grasshopper for building-performance work, with Python, PyTorch Geometric and TopologicPy for the lab's graph-learning and surrogate-model research.", image: "assets/img/software-3d.jpg" }
+    { name: "Simulation & computation", detail: "EnergyPlus, Honeybee/Ladybug and Grasshopper for building-performance work, with Python, PyTorch Geometric and TopologicPy for the lab's graph-learning and surrogate-model research.", image: "assets/img/egress-graph.jpg" }
   ],
 
   stats: [

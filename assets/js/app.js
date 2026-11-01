@@ -172,7 +172,10 @@
     var img = (p.images || [])[0];
     var media = img
       ? el("div", { class: "card__media" + (img.fit === "contain" ? " card__media--contain" : "") },
-          [el("img", { src: img.src, alt: img.alt || p.title, loading: "lazy" })])
+          /* A motion image shows its poster on a card too: a grid of cards must
+             never start loops on arrival (same rule as media(), and as the
+             prerendered cards in build_pages.py). */
+          [el("img", { src: (img.motion && img.poster) ? img.poster : img.src, alt: img.alt || p.title, loading: "lazy" })])
       : null;
 
     return el("a", { class: "card", href: ROOT + "projects/" + p.slug + ".html" }, [
